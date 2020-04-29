@@ -1,0 +1,42 @@
+#from watson_developer_cloud import VisualRecognitionV3 as vr
+from ibm_watson import  VisualRecognitionV3 as vr
+import pprint
+instance = vr(api_key='cKauJ7gzHctHUjk0jdbSbm3mqS_HQiesk1cXDsBZsXEQ', version='2020-04-20')
+img=instance.classify(images_file='C:/Users/HP-PC/Pictures/AIProjTestDataop.jpg')
+pprint.pprint(img['images'][0]['classifiers'][0]['classes'])
+
+********************************************************************************
+
+{
+  "apikey": "cKauJ7gzHctHUjk0jdbSbm3mqS_HQiesk1cXDsBZsXEQ",
+  "iam_apikey_description": "Auto-generated for key 1992d0af-1b7d-402d-bceb-6ebfec11dbc3",
+  "iam_apikey_name": "Auto-generated service credentials",
+  "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+  "iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/5c203818e5eb426e8eec9ab533a943bd::serviceid:ServiceId-1c26b0e5-a974-4cb1-87e7-c6d6dfc9f57f",
+  "url": "https://api.us-south.visual-recognition.watson.cloud.ibm.com/instances/3a5f989e-ab8d-46af-94e6-1e84dedfedab"
+}
+
+
+
+
+
+
+***********************************************************************************
+import json
+from ibm_watson import VisualRecognitionV3
+from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+
+authenticator = IAMAuthenticator('cKauJ7gzHctHUjk0jdbSbm3mqS_HQiesk1cXDsBZsXEQ')
+visual_recognition = VisualRecognitionV3(
+    version='2018-03-19',
+    authenticator=authenticator
+)
+
+url = 'https://ibm.biz/Bd2NPs'
+visual_recognition.set_service_url('https://api.us-south.visual-recognition.watson.cloud.ibm.com/instances/3a5f989e-ab8d-46af-94e6-1e84dedfedab')
+
+
+classifier_ids = ["food"]
+
+classes_result = visual_recognition.classify(url=url, classifier_ids=classifier_ids).get_result()
+print(json.dumps(classes_result, indent=2))
