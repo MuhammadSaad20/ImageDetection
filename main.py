@@ -41,14 +41,7 @@ def imagedet():
         te = tk.Text(root, width=55, height=3,fg='#0a0000',bg='#d4c207',font='Helvetica 10',bd=1,relief='solid',padx=5,pady=5)
 
         config = {
-            "apiKey": "AIzaSyDBt_H_Dq5OEPcxPuqbm1ZgB9h7P4BCG7o",
-            "authDomain": "foodai-20f94.firebaseapp.com",
-            "databaseURL": "https://foodai-20f94.firebaseio.com",
-            "projectId": "foodai-20f94",
-            "storageBucket": "foodai-20f94.appspot.com",
-            "messagingSenderId": "358705975145",
-            "appId": "1:358705975145:web:a739f2d0f8c44fd5d0b7f8",
-            "measurementId": "G-LVK0Y2DC00"
+           //write you own api key
         }
         # -> cred = credentials.Certificate("foodai-20f94-firebase-adminsdk-ykq31-3ef9b3822f.json")
         # ->firebase=firebase_admin.initialize_app(cred)
@@ -72,8 +65,8 @@ def imagedet():
         #localpath = 'C:/Users/HP-PC/Desktop/Testdata/cat.jpg'
         localpath=filename
         visual_recognition = VisualRecognitionV3(
-            '2018-03-19',
-            iam_apikey='cKauJ7gzHctHUjk0jdbSbm3mqS_HQiesk1cXDsBZsXEQ')
+            'vwrite your own ersion',
+            iam_apikey='write your own api key')
 
         with open(localpath, 'rb') as images_file:
             classes = visual_recognition.classify(
